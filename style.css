@@ -1,7 +1,93 @@
-html, body {
+:root {
+  --bg: #000000;
+  --bg-end: #971010;
+  --fg: #ffffff;
+  --btn: #646464;
+  --btn-active: #ff0000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
-canvas {
-  display: block;
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.app {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  transition: background-color 0.3s ease;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Timer has reached zero. */
+.app.finished {
+  background: var(--bg-end);
+}
+
+.time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  /* Scale the digits to fill the width of the screen. */
+  font-size: min(24vw, 42vh);
+  -webkit-text-stroke: 2px #000;
+  text-align: center;
+}
+
+.controls {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: max(3vh, env(safe-area-inset-bottom));
+  display: flex;
+  gap: 4vw;
+  justify-content: center;
+  padding: 0 4vw;
+}
+
+.btn {
+  flex: 1 1 0;
+  max-width: 400px;
+  min-height: 120px;
+  border: none;
+  border-radius: 8px;
+  background: var(--btn);
+  color: var(--fg);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  -webkit-text-stroke: 1px #000;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  touch-action: manipulation;
+}
+
+.btn:active {
+  background: var(--btn-active);
+}
+
+/* Highlight the start/stop button while the timer is running. */
+.btn.active {
+  background: var(--btn-active);
 }

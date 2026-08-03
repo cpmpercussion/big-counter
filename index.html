@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <title>Big Counter</title>
+    <meta name="description" content="A big countdown counter for timing performances." />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
+    <main id="app" class="app">
+      <div class="time" id="time">00:00:00</div>
+      <div class="controls">
+        <button type="button" id="startStop" class="btn">start/stop</button>
+        <button type="button" id="reset" class="btn">reset</button>
+      </div>
     </main>
-    <script src="sketch.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
