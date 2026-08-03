@@ -10,12 +10,51 @@
   </head>
   <body>
     <main id="app" class="app">
-      <div class="time" id="time">00:00:00</div>
+      <button type="button" id="settingsToggle" class="settings-toggle" aria-label="Settings" aria-haspopup="dialog">
+        &#9881;
+      </button>
+
+      <div class="time" id="time">03:00:00</div>
+
       <div class="controls">
         <button type="button" id="startStop" class="btn">start/stop</button>
         <button type="button" id="reset" class="btn">reset</button>
       </div>
+
+      <div class="settings" id="settings" role="dialog" aria-modal="true" aria-label="Settings" hidden>
+        <div class="settings-panel">
+          <h2 class="settings-title">Settings</h2>
+
+          <section class="settings-group">
+            <span class="settings-label">Duration</span>
+            <div class="presets" id="presets">
+              <button type="button" class="preset" data-seconds="60">1 min</button>
+              <button type="button" class="preset" data-seconds="120">2 min</button>
+              <button type="button" class="preset" data-seconds="180">3 min</button>
+              <button type="button" class="preset" data-seconds="300">5 min</button>
+              <button type="button" class="preset" data-seconds="600">10 min</button>
+            </div>
+            <form class="custom" id="customForm">
+              <label class="custom-label" for="customSeconds">Custom seconds</label>
+              <span class="custom-row">
+                <input type="number" id="customSeconds" min="1" step="1" inputmode="numeric" placeholder="e.g. 90" />
+                <button type="submit" class="btn-small">set</button>
+              </span>
+            </form>
+          </section>
+
+          <section class="settings-group">
+            <label class="toggle">
+              <input type="checkbox" id="soundToggle" />
+              <span>Sound at end</span>
+            </label>
+          </section>
+
+          <button type="button" id="settingsClose" class="btn-small settings-close">close</button>
+        </div>
+      </div>
     </main>
+
     <script src="script.js"></script>
   </body>
 </html>
