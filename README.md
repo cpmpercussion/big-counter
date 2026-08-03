@@ -8,17 +8,25 @@ published to GitHub Pages.
 
 ## Usage
 
-The app has one URL parameter, `seconds`, which sets the length of time to
-count down (default is 120).
-
-e.g., `?seconds=180`
-
-This is a very simple countdown timer:
+This is a very simple countdown timer (default is 3 minutes):
 
 - Click/tap the **start/stop** button (or press <kbd>Space</kbd>) to start or
   stop the timer.
 - Press **reset** (or the <kbd>R</kbd> key) to go back to the total time.
 - The background changes to red at the end of the time.
+
+### Settings
+
+Tap the **⚙ gear** in the top corner to open settings:
+
+- **Duration** — pick a preset (1, 2, 3, 5 or 10 minutes) or type a custom
+  number of seconds.
+- **Sound at end** — play a beep when the timer reaches zero (off by default).
+
+Your chosen duration and sound preference are remembered in the browser.
+
+The `seconds` URL parameter still sets the starting duration and takes
+precedence on load, e.g. `?seconds=180`.
 
 ## Running locally
 

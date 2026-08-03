@@ -4,6 +4,8 @@
   --fg: #ffffff;
   --btn: #646464;
   --btn-active: #ff0000;
+  --panel: #1a1a1a;
+  --panel-border: #3a3a3a;
 }
 
 * {
@@ -90,4 +92,173 @@ body {
 /* Highlight the start/stop button while the timer is running. */
 .btn.active {
   background: var(--btn-active);
+}
+
+/* --- Settings --- */
+
+.settings-toggle {
+  position: fixed;
+  top: max(2vh, env(safe-area-inset-top));
+  right: max(2vw, env(safe-area-inset-right));
+  z-index: 5;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(100, 100, 100, 0.35);
+  color: var(--fg);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  touch-action: manipulation;
+}
+
+.settings-toggle:hover,
+.settings-toggle:focus-visible {
+  background: rgba(100, 100, 100, 0.65);
+}
+
+.settings {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4vw;
+}
+
+.settings[hidden] {
+  display: none;
+}
+
+.settings-panel {
+  width: min(480px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.settings-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #aaa;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.preset {
+  flex: 1 1 70px;
+  min-height: 52px;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: var(--btn);
+  color: var(--fg);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+  touch-action: manipulation;
+}
+
+.preset:hover {
+  background: #757575;
+}
+
+/* The preset matching the current duration. */
+.preset.active {
+  background: var(--btn-active);
+  border-color: var(--btn-active);
+}
+
+.custom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-label {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.custom-row {
+  display: flex;
+  gap: 10px;
+}
+
+#customSeconds {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: #000;
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 1.1rem;
+}
+
+.btn-small {
+  min-height: 52px;
+  padding: 0 20px;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: var(--btn);
+  color: var(--fg);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  touch-action: manipulation;
+}
+
+.btn-small:hover {
+  background: #757575;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.toggle input {
+  width: 26px;
+  height: 26px;
+  accent-color: var(--btn-active);
+  cursor: pointer;
+}
+
+.settings-close {
+  align-self: flex-end;
 }
